@@ -1,2 +1,9 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create post</h1>
+<%= form_with model: @post do |form| %>
+	<%= form.label :link%><br>
+	<%= form.text_field :link %>
+	<% @post.errors.full_messages_for(:link).each do |message| %>
+      <div><%= message %></div>
+	<% end %>
+	<%= form.submit "Create" %>
+<% end %>
