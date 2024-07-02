@@ -19,8 +19,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
-  end
+    @posts = Post.joins(:user)
+  end 
 
   private
 
