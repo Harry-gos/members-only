@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.joins(:user)
+    @posts = user_signed_in? ? Post.joins(:user).eager_load(:user) : Post.all 
   end 
 
   private
